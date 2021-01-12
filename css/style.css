@@ -1,0 +1,319 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body{
+	height: 100vh;
+	background: radial-gradient(120vw 120vw at center , 
+		                        #5b8da1 0%, #5e7d9d 20%, 
+		                        #6e5b96 50%, #751b90 80%);
+	display: flex;
+	justify-content: center;
+	overflow: hidden;
+	align-items: center;
+}
+
+/* AREA DO EFEITO PARTICULAS */
+
+#container{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+.particle{
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	background-color: transparent;
+	border: 2px solid #fff;
+	border-radius: 2px;
+	box-shadow: 0 0 5px rgba(0,0,0,.3),
+	            0 0 10px rgba(0,0,0,.3),
+	            0 0 20px rgba(0,0,0,.3);
+}
+
+/*AREA MODAL INFORMATIVO DO JOGO*/
+
+.popup .overlay {
+  position:fixed;
+  top:0px;
+  left:0px;
+  width:100vw;
+  height:100vh;
+  background:rgba(0,0,0,0.7);
+  z-index:9999;
+  display:none;
+}
+
+.popup .content {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%) scale(0);
+  background:#fff;
+  width:500px;
+  height:300px;
+  z-index:2;
+  text-align:center;
+  border: 5px solid transparent;
+  border-image: linear-gradient(-45deg, #ff0, #f0f);
+  border-image-slice: 1;
+  padding:20px;
+  box-sizing:border-box;
+  font-family:"Open Sans",sans-serif;
+  z-index:9999;
+}
+
+.popup .close-btn {
+  cursor:pointer;
+  position:absolute;
+  right:20px;
+  top:20px;
+  width:30px;
+  height:30px;
+  background:#222;
+  color:#fff;
+  font-size:25px;
+  font-weight:600;
+  line-height:30px;
+  text-align:center;
+  border-radius:50%;
+}
+
+.popup.active .overlay {
+  display:block;
+}
+
+.popup.active .content {
+  transition:all 300ms ease-in-out;
+  transform:translate(-50%,-50%) scale(1);
+}
+
+button {
+  position:absolute;
+  bottom: -15px;
+  left:35%;
+  transform:translate(-50%,-50%);
+  padding:10px 15px;
+  font-size:18px;
+  border:2px solid #222;
+  color:#222;
+  text-transform:uppercase;
+  font-weight:600;
+  background:#fff;
+  z-index: 10;
+}
+
+/* AREA DO EFEITO FOGOS DE ARTIFICIO */
+
+.firework {
+	position: absolute;
+	z-index: 1000;
+}
+.explosion {
+	position: absolute;
+	left: -2px;
+	bottom: 0;
+	width: 4px;
+	height: 80px;
+	transform-origin: 50% 100%;
+	/* background-color: rgba(0,0,0,.2); */
+	overflow: hidden;
+}
+.explosion:nth-child(1) {
+	transform: rotate(0deg) translateY(-15px);
+}
+.explosion:nth-child(2) {
+	transform: rotate(30deg) translateY(-15px);
+}
+.explosion:nth-child(3) {
+	transform: rotate(60deg) translateY(-15px);
+}
+.explosion:nth-child(4) {
+	transform: rotate(90deg) translateY(-15px);
+}
+.explosion:nth-child(5) {
+	transform: rotate(120deg) translateY(-15px);
+}
+.explosion:nth-child(6) {
+	transform: rotate(150deg) translateY(-15px);
+}
+.explosion:nth-child(7) {
+	transform: rotate(180deg) translateY(-15px);
+}
+.explosion:nth-child(8) {
+	transform: rotate(210deg) translateY(-15px);
+}
+.explosion:nth-child(9) {
+	transform: rotate(240deg) translateY(-15px);
+}
+.explosion:nth-child(10) {
+	transform: rotate(270deg) translateY(-15px);
+}
+.explosion:nth-child(11) {
+	transform: rotate(300deg) translateY(-15px);
+}
+.explosion:nth-child(12) {
+	transform: rotate(330deg) translateY(-15px);
+}
+
+.explosion::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 100%;
+	height: 40px;
+	background-color: #f5cf52;
+}
+@keyframes explosion {
+	0% {
+		top: 100%;
+	}
+	33%, 100% {
+		top: -50%;
+	}
+}
+
+#firework1 {
+	right: 10%;
+	top: 10%;
+	z-index: 1000;
+	transform: scale(1);
+}
+#firework1 .explosion::before {
+	animation: explosion 2s ease-in-out infinite;
+}
+
+#firework2 {
+	right: 20%;
+	top: 15%;
+	z-index: 1000;
+	transform: scale(.7);
+}
+#firework2 .explosion::before {
+	animation: explosion 2s .6s ease-in-out infinite;
+}
+
+#firework3 {
+	right: 10%;
+	top: 25%;
+	z-index: 1000;
+	transform: scale(.4);
+}
+#firework3 .explosion::before {
+	animation: explosion 2s .4s ease-in-out infinite;
+}
+
+.youtube-link {
+	position: fixed;
+	left: 20px;
+	bottom: 20px;
+	color: #fff;
+	text-decoration: none;
+	font-size: 12px;
+}
+
+/* AREA DO SOM DO FUNDO DO JOGO */
+
+ .bg-music{
+   	position: absolute;
+   	bottom: 0;
+   	right: 35%;
+   	margin: 0 auto;
+   	border: none;
+}
+.btn{
+   	text-transform: uppercase;
+    text-decoration: none;
+    font-family: Arial;
+    padding:10px 20px;
+    font-size: 25px;
+    border:2px solid #222;
+    color:#222;
+    text-transform:uppercase;
+    font-weight:600;
+    background:#fff;
+    z-index: 10;
+   	display: block;
+   	transition: all linear .2s;
+}
+.btn span{
+   	font-family: Arial;
+   	font-size: 18px;
+   	font-weight: 600;
+   	margin-left: 5px;
+}
+
+.fa-pause-circle-o{
+   	display: none;
+}
+
+/* BOTÃO RESTART  */
+
+.button{
+  position:absolute;
+  bottom: -15px;
+  left: 50%;
+  transform:translate(-50%,-50%);
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: Arial;
+  padding:10px 15px;
+  font-size:18px;
+  border:2px solid #222;
+  color:#222;
+  text-transform:uppercase;
+  font-weight:600;
+  background:#fff;
+  z-index: 10;
+}
+/* AREA CANVAS */
+
+canvas{
+  position: absolute;
+  top: 4%;
+  left: 16%;
+  background: url("../img/tela1.jpg");
+  background-size: cover;
+  animation: animatedBackground 4s linear infinite; 
+  border: 10px solid transparent;
+  border-image: linear-gradient(45deg, #ff0, #f0f);
+  border-image-slice: 1;
+  box-shadow: 8px 8px 15px rgba(0,0,0,0.7);
+  z-index: 10;
+}
+
+
+@keyframes animatedBackground {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: -600px 0px;
+  }
+}
+
+
+/* AREA RESPONSIVE */
+
+@media screen and ( max-width: 1100px;){
+	canvas{
+		position: absolute;
+		top: 10%
+		left: 10%;
+	}
+	.button{
+		position: absolute;
+		bottom: 10%;
+		left: 55%;
+	}
+	button{
+		position: absolute;
+		bottom: 10%;
+		left: 40%;
+	}
+}
